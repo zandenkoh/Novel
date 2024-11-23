@@ -1,0 +1,350 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Loading Popup Styles */
+.loading-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.5s ease-out, visibility 0s 0.5s;
+}
+
+.popup-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.logo {
+  width: 100px; /* Adjust size as needed */
+  margin-bottom: 20px;
+}
+
+.loader {
+  width: 50px; /* Adjust size as needed */
+}
+
+/* Loader Animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Hidden class to fade out */
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 230px;
+  background-color: #e9e9e9;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  border-right: 3px solid #d5d5d5;
+  font-family: "Roboto", serif;
+}
+
+.sidebar .menu h2, .sidebar .collections h3, .sidebar .collections h4 {
+  margin: 10px 0;
+}
+
+.menu ul {
+  list-style-type: none; /* Remove default bullet points */
+  padding: 0;
+  margin: 0;
+}
+
+.menu ul li {
+  margin: 4px 0; /* Add space between list items */
+}
+
+.menu ul li a {
+  text-decoration: none; /* Remove underline from links */
+  color: #444; /* Default link colour */
+  font-size: 16px; /* Adjust font size */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  border-radius: 7px;
+  font-weight: 400;
+}
+
+.menu ul li .page-focus {
+  text-decoration: none; /* Remove underline from links */
+  color: #fff; /* Default link colour */
+  font-size: 16px; /* Adjust font size */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  border-radius: 7px;
+  background: #000;
+  font-weight: 400; 
+}
+
+.menu ul li .page-focus:hover {
+  background: #333;
+}
+
+.menu ul li a svg {
+  width: 20px;
+  height: 20px;
+}
+
+.menu ul li a:hover {
+  background: #dfdfdf;
+}
+
+.collections h3 {
+  margin-top: 20px;
+  padding-left: 7px;
+  font-size: 16px;
+  color: #333;
+}
+
+
+.sidebar .new-collection {
+  cursor: pointer;
+  color: #444;
+}
+
+.user-container {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.user-container .profile-img {
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-container .username {
+  font-weight: bold;
+}
+
+/* Main Content */
+.content {
+  flex: 1;
+  padding: 20px 60px;
+  overflow-y: auto;
+  background: #fff;
+  font-family: "EB Garamond", serif;
+  user-select: none;
+}
+
+.home h1 {
+  font-size: 38px;
+  font-weight: 900;
+  margin-bottom: 4px;
+}
+
+.goal-container {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+.goal-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+}
+
+.progress-ring {
+  transform: rotate(-90deg); 
+  border-radius: 8px;
+}
+
+.progress-ring__background {
+  stroke-dasharray: 50.27; /* Matches the circumference of the circle */
+  stroke-dashoffset: 0; /* Fully visible background */
+  transition: none; /* No animation for the background */
+}
+
+.progress-ring__circle {
+  stroke-dasharray: 50.27; /* 2 * π * 8 (circle's circumference) */
+  stroke-dashoffset: 50.27; /* Start with the circle completely hidden */
+  transition: stroke-dashoffset 0.6s ease;
+  stroke-linecap: round;/* Smooth transition for progress */
+}
+
+.time-info {
+  display: flex;
+  flex-direction: row;
+}
+
+.time-info p {
+  font-size: 16px; 
+  margin: 0;
+  font-family: "Roboto", serif;
+  color: #069dda;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.time-info #minutes-left {
+  font-size: 16px; 
+  margin: 0;
+  font-family: "Roboto", serif;
+  color: #888;
+  font-weight: 400;
+  font-size: 15px;
+  margin-left: 7px;
+}
+
+.section-seperator {
+  border-bottom: 1px solid #eaeaea;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.continue-reading {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 0px;
+  overflow-x: auto;
+}
+
+.continue-reading h2 {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 5px;
+  font-size: 26px;
+  font-weight: 900;
+  color: #000;
+}
+
+#uploaded-books-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  justify-content: space-around;
+  margin-top: 0;
+  align-items: center;
+  padding: none;
+  height: 100%;
+  overflow-x: scroll;
+}
+
+/* Book card styling */
+.book-card {
+  width: 180px;
+  height: 270px;
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+  padding: 10px;
+}
+
+.book-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.book-card a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.book-card p {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Add Book card styling */
+.add-book-card {
+  width: 180px;
+  height: 270px;
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+  padding: 10px;
+}
+
+.add-book-card:hover {
+  background-color: #f0f0f0;
+}
+
+.add-book-card button {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-book-card button:hover {
+  background-color: #0056b3;
+}
+
+/* Book cover (for PDFs) - canvas styling */
+.book-card canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+/* Text styling for book cover (PDFs) */
+.book-card canvas {
+  display: block;
+  text-align: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  font-size: 22px;
+  color: #333;
+}
+
